@@ -1,0 +1,6 @@
+[submodule "DynamicNestedField"]
+	path = DynamicNestedField
+	url = https://github.com/NAMEER242/DynamicNestedField
+[submodule "DNF_showcase/DynamicNestedField"]
+	path = DNF_showcase/DynamicNestedField
+	url = https://github.com/NAMEER242/DynamicNestedField

@@ -1,12 +1,12 @@
-from DynamicNestedField.DynamicNestedField import DynamicNestedMixin
 from rest_framework.permissions import IsAuthenticated
+from DNF_Showcase.DynamicNestedField.src.DynamicNestedField.DynamicNestedField import DynamicNestedMixin
 from DNF_Showcase.models import C, B, A
 
 
 class C_Serializer(DynamicNestedMixin):
     class Meta:
         model = C
-        fields = ['charfield']
+        fields = ['id', 'charfield']
         permission_classes = [IsAuthenticated]  # the general permission class.
         permission_classes_by_method = {
             'GET': [IsAuthenticated],
@@ -18,14 +18,14 @@ class C_Serializer(DynamicNestedMixin):
 
 
 class B_Serializer(DynamicNestedMixin):
-    c = C_Serializer()
+    c = C_Serializer(required=False)
 
     class Meta:
         model = B
-        fields = ['charfield', 'c']
+        fields = ['id', 'charfield', 'c']
         DNM_config = {  # DNM_config holds all the configuration needed.
             "c": {
-                "filter": "id",
+                "filter": ["id"],
             }
         }
         permission_classes = [IsAuthenticated]  # the general permission class.
@@ -39,14 +39,14 @@ class B_Serializer(DynamicNestedMixin):
 
 
 class A_Serializer(DynamicNestedMixin):
-    b = B_Serializer(many=True)  # many=True for m2m.
+    b = B_Serializer(required=False, many=True)  # many=True for m2m.
 
     class Meta:
         model = A
-        fields = ['charfield', 'b']
+        fields = ['id', 'charfield', 'b']
         DNM_config = {  # DNM_config holds all the configuration needed.
             "b": {
-                "filter": "id",
+                "filter": ["id", "charfield"],
             }
         }
         permission_classes = [IsAuthenticated]  # the general permission class.

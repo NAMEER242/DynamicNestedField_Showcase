@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'DNF_Showcase.DynamicNestedField.src.DynamicNestedField.DynamicNestedField.GlobalRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'DynamicNestedField_Showcase.urls'

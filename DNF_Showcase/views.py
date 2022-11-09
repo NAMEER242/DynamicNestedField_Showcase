@@ -1,4 +1,4 @@
-from DynamicNestedField.DynamicNestedField import NestedModelViewSet
+from DNF_Showcase.DynamicNestedField.src.DynamicNestedField.DynamicNestedField import NestedModelViewSet
 from DNF_Showcase.models import C, B, A
 from DNF_Showcase.serializers import C_Serializer, B_Serializer, A_Serializer
 
