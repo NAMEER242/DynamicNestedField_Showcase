@@ -1,6 +1,7 @@
 from rest_framework.permissions import IsAuthenticated
 from DNF_Showcase.DynamicNestedField.src.DynamicNestedField.DynamicNestedField import DynamicNestedMixin
 from DNF_Showcase.models import C, B, A
+from DNF_Showcase.validators import CValidator
 
 
 class C_Serializer(DynamicNestedMixin):
@@ -15,6 +16,7 @@ class C_Serializer(DynamicNestedMixin):
             'DELETE': [IsAuthenticated],
             # and so on.
         }
+        instance_validator = [CValidator]
 
 
 class B_Serializer(DynamicNestedMixin):
