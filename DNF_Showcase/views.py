@@ -9,6 +9,7 @@ class C_ViewSet(NestedModelViewSet):
     """
     queryset = C.objects.all()
     serializer_class = C_Serializer
+    enable_filter_schema = True
 
 
 class B_ViewSet(NestedModelViewSet):

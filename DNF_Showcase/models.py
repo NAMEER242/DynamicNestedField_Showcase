@@ -1,5 +1,4 @@
 from django.db import models
-from pyasn1.compat.octets import null
 
 
 class C(models.Model):
